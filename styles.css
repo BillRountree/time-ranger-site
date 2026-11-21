@@ -305,3 +305,4 @@ p{margin:0 0 1em}
   .reveal{opacity:1;transform:none}
   .hero__crack polyline{stroke-dashoffset:0}
 }
+.oneline{white-space:nowrap;font-size:clamp(26px,4.4vw,56px)}
