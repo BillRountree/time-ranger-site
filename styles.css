@@ -247,3 +247,105 @@ p{margin:0 0 1em}
   html{scroll-behavior:auto}
   .reveal{opacity:1;transform:none}
 }
+
+/* ===== Light, sunny sections (v3) ===== */
+:root{
+  --sand:#fbf1df;
+  --sand-2:#f4e2c2;
+  --sky:#2e9ad3;
+  --sun:#f47b2a;
+  --brown:#3b2415;
+  --brown-2:#6e4d36;
+  --burnt:#c8520c;
+  --edge:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='26' viewBox='0 0 240 26' preserveAspectRatio='none'%3E%3Cpath d='M0 26V14l10-5 9 6 12-9 10 7 13-10 9 8 12-6 11 9 10-11 12 8 9-5 13 9 10-8 11 6 12-10 9 7 13-6 10 9 11-7 12 5 9-8 13 9V26z'/%3E%3C/svg%3E");
+}
+body{background:var(--sand)}
+.band{position:relative;background-color:var(--bandc)}
+.band::before{content:"";position:absolute;left:0;right:0;top:-25px;height:26px;background:var(--bandc);-webkit-mask:var(--edge) 0 0/240px 26px repeat-x;mask:var(--edge) 0 0/240px 26px repeat-x;pointer-events:none;z-index:1}
+.band--sand{--bandc:var(--sand)}
+.band--sand2{--bandc:var(--sand-2)}
+.band--sky{--bandc:var(--sky)}
+.band--sun{--bandc:var(--sun)}
+.band--night{--bandc:#1e150f}
+
+/* text on light bands */
+.on-light{color:var(--brown)}
+.on-light h2,.on-light h3{color:var(--brown)}
+.on-light .eyebrow--hot{color:var(--burnt)}
+.on-light .lead{color:var(--brown)}
+.on-light p,.on-light .overview__copy p,.on-light .level__copy p,.on-light .team p,.on-light .press p{color:var(--brown-2)}
+.on-light .overview__copy .lead{color:var(--brown)}
+.on-light a:not(.btn){color:var(--burnt)}
+.on-light .btn--ghost{border-color:var(--brown);color:var(--brown);background:transparent;backdrop-filter:none}
+.on-light .btn--ghost:hover{background:var(--brown);color:var(--sand)}
+.on-light .btn--disabled{border-color:rgba(59,36,21,.25);color:var(--brown-2)}
+.on-light .fineprint{color:var(--brown-2)}
+
+/* text on colour bands */
+.on-color,.on-color h2,.on-color h3{color:#fff}
+.on-color .eyebrow--hot{color:#ffe08a}
+.on-color .section__head p{color:#fff}
+
+/* backgrounds (solid, so the torn edges match) */
+.overview,.features,.levels,.gallery,.play,.team,.press,.final{background:none}
+.overview{background-color:var(--sand)}
+.features{background-color:var(--sky)}
+.levels{background-color:var(--sand)}
+.gallery{background-color:var(--sun)}
+.play{background-color:var(--sand-2)}
+.team{background-color:var(--sky)}
+.press{background-color:var(--sand)}
+.final{background:radial-gradient(ellipse at 50% 60%,rgba(255,59,59,.25),transparent 60%),#1e150f}
+.story{margin-top:0}
+
+/* pillars */
+.on-light .pillars li{background:#fff;border-left-color:var(--sun);box-shadow:0 2px 0 rgba(59,36,21,.08)}
+.on-light .pillars strong{color:var(--brown)}
+.on-light .pillars span{color:var(--brown-2)}
+
+/* trailer frame becomes a chunky poster frame */
+.on-light .crt{background:#fff;box-shadow:8px 8px 0 var(--brown);border:3px solid var(--brown);transform:rotate(1deg)}
+
+/* feature cards: white poster cards */
+.features .card{background:#fff;border:3px solid var(--brown);box-shadow:6px 6px 0 rgba(59,36,21,.9)}
+.features .card:hover{border-color:var(--brown);transform:translateY(-6px) rotate(-.6deg)}
+.features .card h3{color:var(--brown)}
+.features .card p{color:var(--brown-2)}
+.features .card__media{border-bottom:3px solid var(--brown)}
+.features .num{color:var(--burnt)}
+.features .medals__title{color:#fff}
+.features .medals li{color:#fff}
+.features .medals img{filter:drop-shadow(0 4px 0 rgba(0,0,0,.25))}
+
+/* level images as tilted snapshots */
+.levels .level__media{padding:10px 10px 10px;background:#fff;border-radius:6px;box-shadow:0 18px 40px rgba(59,36,21,.25)}
+.levels .level__media img{border-radius:2px}
+.levels .level__media .tag{top:20px;right:20px}
+.levels .level__num{color:var(--burnt)}
+.levels .chips li{border-color:rgba(59,36,21,.25);color:var(--brown);background:#fff}
+.levels .level--soon .level__media::after{inset:10px}
+
+/* gallery on the sunset band */
+.gallery .shot{border:6px solid #fff;border-radius:6px;box-shadow:0 10px 24px rgba(59,36,21,.3)}
+.gallery .shot:nth-child(odd){transform:rotate(-.8deg)}
+.gallery .shot:nth-child(even){transform:rotate(.8deg)}
+.gallery .shot:hover{transform:rotate(0) scale(1.02);z-index:2}
+
+/* platforms */
+.play .platform{background:#fff;border:3px solid var(--brown);box-shadow:6px 6px 0 rgba(59,36,21,.9)}
+.play .platform__name{color:var(--brown)}
+.play .platform__status{color:var(--brown-2)}
+.play .platform--main{background:linear-gradient(160deg,#ffe2c4,#fff 60%);border-color:var(--sun);box-shadow:6px 6px 0 var(--burnt)}
+
+/* team on sky */
+.team p{color:#eaf6fd}
+.team .devs a{background:#fff;border:3px solid var(--brown);box-shadow:6px 6px 0 rgba(59,36,21,.9);color:var(--brown)}
+.team .devs span{color:var(--brown-2)}
+.team .devs a:hover{border-color:var(--brown)}
+
+/* press */
+.press .downloads a{background:#fff;border:2px solid rgba(59,36,21,.2);color:var(--brown)}
+.press .downloads a:hover{border-color:var(--sun)}
+
+/* nav on light page: keep it dark for contrast with the logo */
+.nav{background:rgba(30,21,15,.92)}
