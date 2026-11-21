@@ -2,51 +2,79 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Time Ranger · VR arcade light gun shooter for Meta Quest</title>
-<meta name="description" content="Time Ranger is a VR love letter to the golden age of light gun shooters. Dual-wield, dodge bullets and chase outlaws through broken timelines on Meta Quest.">
+<meta name="description" content="Time Ranger is a time-travelling western action movie in VR: a love letter to the golden age of light gun shooters. Dual-wield, dodge bullets and blast through fractures in time on Meta Quest.">
 <meta property="og:title" content="Time Ranger · VR arcade light gun shooter">
 <meta property="og:description" content="A VR love letter to the golden age of light gun shooters. Wishlist on Meta Quest and play the free demo.">
 <meta property="og:image" content="assets/img/og-wide.jpg">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#2e9ad3">
+<meta name="theme-color" content="#060b17">
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Rubik:wght@400;500;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Saira:ital,wght@0,500;0,700;1,800;1,900&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <a class="skip" href="#main">Skip to content</a>
 
+<!-- shared SVG defs: shard gradient + glow -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="shardFill" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7fe9ff" stop-opacity=".95"/>
+      <stop offset=".45" stop-color="#1f8bff" stop-opacity=".85"/>
+      <stop offset="1" stop-color="#3a2bd1" stop-opacity=".9"/>
+    </linearGradient>
+  </defs>
+</svg>
+
 <header class="nav" id="top">
-  <a class="nav__logo" href="#top" aria-label="Time Ranger home"><img src="assets/img/logo.png" alt="Time Ranger" width="72" height="60"></a>
-  <nav class="nav__links" aria-label="Sections">
+  <a class="nav__logo" href="#top" aria-label="Time Ranger home"><img src="assets/img/logo-fracture-sm.webp" alt="Time Ranger" width="240" height="160"></a>
+  <nav class="nav__links" id="nav-links" aria-label="Sections">
     <a href="#trailer">Trailer</a>
     <a href="#features">Features</a>
     <a href="#levels">Levels</a>
     <a href="#story">Story</a>
     <a href="#play">Play</a>
   </nav>
-  <a class="btn btn--small btn--hot" href="https://www.meta.com/experiences/time-ranger/24452721484379707/" target="_blank" rel="noopener">Wishlist</a>
+  <a class="btn btn--small btn--hot nav__cta" href="https://www.meta.com/experiences/time-ranger/24452721484379707/" target="_blank" rel="noopener">Wishlist</a>
+  <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span><span class="sr">Menu</span></button>
 </header>
 
 <main id="main">
 
-<!-- HERO -->
+<!-- HERO: two eras split by a time fracture -->
 <section class="hero" aria-label="Time Ranger">
-  <div class="hero__bg" style="background-image:url('assets/img/hero-saloon.jpg')"></div>
+  <div class="hero__era hero__era--a" style="background-image:url('assets/img/hero-saloon.jpg')"></div>
+  <div class="hero__era hero__era--b" style="background-image:url('assets/img/keyart-church.jpg')"></div>
+  <svg class="hero__crack" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+    <polyline points="63,0 58,13 65,24 55,38 62,50 51,63 57,74 47,88 52,100" />
+    <polyline class="thin" points="58,13 50,9 44,12" />
+    <polyline class="thin" points="55,38 47,36 42,41" />
+    <polyline class="thin" points="62,50 72,47 78,52" />
+    <polyline class="thin" points="51,63 43,67 37,64" />
+    <polyline class="thin" points="57,74 66,79 71,76" />
+  </svg>
   <div class="hero__shade"></div>
+  <div class="shards shards--hero" aria-hidden="true">
+    <svg class="shard" style="--x:12%;--y:18%;--s:70px;--r:-20deg;--d:0s" viewBox="0 0 100 100"><polygon points="0,30 100,0 40,100"/></svg>
+    <svg class="shard" style="--x:80%;--y:14%;--s:54px;--r:30deg;--d:.6s" viewBox="0 0 100 100"><polygon points="10,0 100,60 0,100"/></svg>
+    <svg class="shard" style="--x:86%;--y:66%;--s:84px;--r:-8deg;--d:1.2s" viewBox="0 0 100 100"><polygon points="0,0 100,40 30,100"/></svg>
+    <svg class="shard" style="--x:7%;--y:72%;--s:46px;--r:50deg;--d:.3s" viewBox="0 0 100 100"><polygon points="0,50 100,0 70,100"/></svg>
+    <svg class="shard" style="--x:30%;--y:84%;--s:34px;--r:12deg;--d:.9s" viewBox="0 0 100 100"><polygon points="0,0 100,30 20,100"/></svg>
+  </div>
   <div class="hero__inner">
-    <p class="eyebrow">VR arcade light gun shooter</p>
-    <h1 class="hero__logo"><img src="assets/img/logo.png" alt="Time Ranger" width="1000" height="832"></h1>
+    <p class="kicker">Light guns · 80s action · time travel · western</p>
+    <h1 class="hero__logo"><img src="assets/img/logo-fracture.webp" alt="Time Ranger" width="1100" height="733"></h1>
     <p class="hero__tag">A VR love letter to the golden age of light gun shooters.</p>
     <p class="hero__sub">Coming soon to <strong>Meta Quest</strong>. The free demo is out now.</p>
     <div class="hero__ctas">
       <a class="btn btn--hot" href="https://www.meta.com/experiences/time-ranger/24452721484379707/" target="_blank" rel="noopener">Wishlist on Meta Quest</a>
-      <a class="btn btn--ghost" href="https://www.meta.com/experiences/time-ranger-demo/33572087599057043/" target="_blank" rel="noopener">Play the free demo</a>
+      <a class="btn btn--glass" href="https://www.meta.com/experiences/time-ranger-demo/33572087599057043/" target="_blank" rel="noopener">Play the free demo</a>
     </div>
   </div>
   <a class="hero__coin" href="#overview"><span class="blink">Insert coin</span><span class="hero__arrow" aria-hidden="true">▼</span></a>
@@ -55,27 +83,27 @@
 <!-- TICKER -->
 <div class="ticker" aria-hidden="true">
   <div class="ticker__track">
-    <span>Dual wield</span><span>Dodge bullets</span><span>Shoot bullets back</span><span>Boss in every era</span><span>Medals</span><span>Leaderboards</span><span>Paradoxes</span><span>No reloads</span>
-    <span>Dual wield</span><span>Dodge bullets</span><span>Shoot bullets back</span><span>Boss in every era</span><span>Medals</span><span>Leaderboards</span><span>Paradoxes</span><span>No reloads</span>
+    <span>Dual wield</span><span>Dodge bullets</span><span>Shoot bullets back</span><span>Boss in every era</span><span>Medals</span><span>Leaderboards</span><span>Time fractures</span><span>No reloads</span>
+    <span>Dual wield</span><span>Dodge bullets</span><span>Shoot bullets back</span><span>Boss in every era</span><span>Medals</span><span>Leaderboards</span><span>Time fractures</span><span>No reloads</span>
   </div>
 </div>
 
 <!-- OVERVIEW + TRAILER -->
-<section class="section overview band band--sand on-light" id="overview">
+<section class="section overview" id="overview" data-edge="#08101f">
   <div class="wrap overview__grid">
     <div class="overview__copy reveal">
-      <p class="eyebrow eyebrow--hot">Stage select</p>
-      <h2>Step into the boots of the Time&nbsp;Ranger</h2>
-      <p class="lead">Remember feeding coins into the light gun cabinet at the back of the arcade? Time Ranger brings that rush to VR: a fast, on-rails shooter where you chase outlaws through broken timelines with a pistol in each hand.</p>
-      <p>No inventory. No menus to fiddle with. Just you, the next wave, and the clock. Each level drops you into a new era with its own enemies, music and a boss waiting at the end.</p>
+      <p class="eyebrow">Now showing</p>
+      <h2>A time-travelling western action movie. <em>Starring you.</em></h2>
+      <p class="lead">Remember feeding coins into the light gun cabinet at the back of the arcade? Time Ranger brings that rush to VR: a fast, on-rails shooter where you chase outlaws through fractures in time with a pistol in each hand.</p>
+      <p>No inventory. No menus to fiddle with. Just you, the next wave, and the clock. Each level smashes you into a new era with its own enemies, music and a boss waiting at the end.</p>
       <ul class="pillars">
-        <li><strong>Instant action</strong><span>Put the headset on and you are shooting in seconds.</span></li>
-        <li><strong>Short, intense runs</strong><span>Self-contained levels built for 5 to 7 minute sessions.</span></li>
+        <li><strong>Instant action</strong><span>Headset on, guns up, in seconds.</span></li>
+        <li><strong>Short, intense runs</strong><span>Levels built for 5 to 7 minute sessions.</span></li>
         <li><strong>Endless replay</strong><span>Scores, medals, challenges and online leaderboards.</span></li>
       </ul>
     </div>
     <div class="overview__video reveal" id="trailer">
-      <div class="crt">
+      <div class="frame">
         <button class="yt" type="button" data-yt="glyHTb7BkSE" aria-label="Play the Time Ranger trailer">
           <img src="assets/img/keyart-church.jpg" alt="Time Ranger key art: the Ranger and his brother face a mech outside a frontier church" loading="lazy">
           <span class="yt__play" aria-hidden="true"></span>
@@ -87,107 +115,121 @@
   </div>
 </section>
 
-<!-- FEATURES -->
-<section class="section features band band--sky on-color" id="features">
+<!-- FEATURES: one roomy row per feature, built for GIFs -->
+<section class="section features" id="features" data-edge="#0b1428">
   <div class="wrap">
     <div class="section__head reveal">
-      <p class="eyebrow eyebrow--hot">Key features</p>
-      <h2>Everything you loved about the arcade. In your hands.</h2>
+      <p class="eyebrow">Key features</p>
+      <h2>Everything you loved about the arcade. <em>In your hands.</em></h2>
     </div>
-    <!-- Media slots: swap each .jpg for a .gif/.webm of the same name (see README). -->
-    <div class="cards">
-      <article class="card reveal">
-        <div class="card__media"><img src="assets/media/feature-dual-wield.jpg" alt="Dual pistols aimed down a moving train carriage" loading="lazy"><span class="tag">GIF soon</span></div>
-        <h3><span class="num">01</span> Dual-wield gunplay</h3>
-        <p>Smooth, responsive pistols with tactile haptics and punchy feedback. Go guns akimbo or keep it classic with one.</p>
-      </article>
-      <article class="card reveal">
-        <div class="card__media"><img src="assets/media/feature-dodge.jpg" alt="Bullets sparking off rocks during a frontier shootout" loading="lazy"><span class="tag">GIF soon</span></div>
-        <h3><span class="num">02</span> Dodge &amp; ricochet</h3>
-        <p>Lean out of the way of incoming fire, or shoot the bullets right out of the air and send them back.</p>
-      </article>
-      <article class="card reveal">
-        <div class="card__media"><img src="assets/media/feature-time.jpg" alt="Stage clear screen showing your time and personal best" loading="lazy"><span class="tag">GIF soon</span></div>
-        <h3><span class="num">03</span> Time is currency</h3>
-        <p>The clock is always ticking. Shoot enemies and clear sections to buy yourself more time.</p>
-      </article>
-      <article class="card reveal">
-        <div class="card__media"><img src="assets/media/feature-boss.jpg" alt="A glowing mech stomps out of the saloon" loading="lazy"><span class="tag">GIF soon</span></div>
-        <h3><span class="num">04</span> Boss showdowns</h3>
-        <p>Every era ends in a high-stakes duel that tests your aim and your nerve under pressure.</p>
-      </article>
-      <article class="card reveal">
-        <div class="card__media"><img src="assets/media/feature-paradox.jpg" alt="A train charges through a fractured, floating frontier town" loading="lazy"><span class="tag">GIF soon</span></div>
-        <h3><span class="num">05</span> Paradox encounters</h3>
-        <p>Time is broken, so things show up where they shouldn't: time cops in a Western town, Vikings in a bank heist.</p>
-      </article>
-      <article class="card reveal">
-        <div class="card__media"><img src="assets/media/feature-challenges.jpg" alt="In-game options for crosshairs and gun styles" loading="lazy"><span class="tag">GIF soon</span></div>
-        <h3><span class="num">06</span> Challenges &amp; leaderboards</h3>
+    <!-- Media slots: swap each .jpg for a .gif / .webm of the same name (see README). -->
+    <article class="feature reveal">
+      <div class="feature__media"><div class="glass"><img src="assets/media/feature-dual-wield.jpg" alt="Dual pistols aimed down a moving train carriage" loading="lazy"><span class="tag">GIF soon</span></div></div>
+      <div class="feature__copy">
+        <p class="feature__num">01</p>
+        <h3>Dual-wield gunplay</h3>
+        <p>Smooth, responsive pistols with tactile haptics and punchy feedback. Go guns akimbo like the hero of every 80s action movie, or keep it classic with one.</p>
+      </div>
+    </article>
+    <article class="feature feature--flip reveal">
+      <div class="feature__media"><div class="glass"><img src="assets/media/feature-dodge.jpg" alt="Bullets sparking off rocks during a frontier shootout" loading="lazy"><span class="tag">GIF soon</span></div></div>
+      <div class="feature__copy">
+        <p class="feature__num">02</p>
+        <h3>Dodge &amp; ricochet</h3>
+        <p>Lean out of the way of incoming fire, or shoot the bullets right out of the air and send them back where they came from.</p>
+      </div>
+    </article>
+    <article class="feature reveal">
+      <div class="feature__media"><div class="glass"><img src="assets/media/feature-time.jpg" alt="Stage clear screen showing your time and personal best" loading="lazy"><span class="tag">GIF soon</span></div></div>
+      <div class="feature__copy">
+        <p class="feature__num">03</p>
+        <h3>Time is currency</h3>
+        <p>The clock is always ticking. Shoot enemies and clear sections to buy yourself more time. Run out, and it's game over.</p>
+      </div>
+    </article>
+    <article class="feature feature--flip reveal">
+      <div class="feature__media"><div class="glass"><img src="assets/media/feature-boss.jpg" alt="A glowing mech stomps out of the saloon" loading="lazy"><span class="tag">GIF soon</span></div></div>
+      <div class="feature__copy">
+        <p class="feature__num">04</p>
+        <h3>Boss showdowns</h3>
+        <p>Every era ends in a high-stakes duel that tests your aim and your nerve. Some bosses have no business being in that century at all.</p>
+      </div>
+    </article>
+    <article class="feature reveal">
+      <div class="feature__media"><div class="glass"><img src="assets/media/feature-paradox.jpg" alt="A train charges through a fractured, floating frontier town" loading="lazy"><span class="tag">GIF soon</span></div></div>
+      <div class="feature__copy">
+        <p class="feature__num">05</p>
+        <h3>Time fractures &amp; paradoxes</h3>
+        <p>Time is shattered, and things pour through the cracks: time cops in a Western town, Vikings in a bank heist, trains where trains should not be.</p>
+      </div>
+    </article>
+    <article class="feature feature--flip reveal">
+      <div class="feature__media"><div class="glass"><img src="assets/media/feature-challenges.jpg" alt="In-game options for crosshairs and gun styles" loading="lazy"><span class="tag">GIF soon</span></div></div>
+      <div class="feature__copy">
+        <p class="feature__num">06</p>
+        <h3>Challenges &amp; leaderboards</h3>
         <p>Swap crosshairs and gun styles, turn on reloads, change your health, and climb the online leaderboards.</p>
-      </article>
-    </div>
-
-    <div class="medals reveal" aria-label="Medal ranks">
-      <p class="medals__title">Chase every medal</p>
-      <ul>
-        <li><img src="assets/img/medal_bronze.png" alt="" width="72" height="72" loading="lazy"><span>Bronze</span></li>
-        <li><img src="assets/img/medal_silver.png" alt="" width="72" height="72" loading="lazy"><span>Silver</span></li>
-        <li><img src="assets/img/medal_gold.png" alt="" width="72" height="72" loading="lazy"><span>Gold</span></li>
-        <li><img src="assets/img/medal_diamond.png" alt="" width="72" height="72" loading="lazy"><span>Diamond</span></li>
-        <li><img src="assets/img/medal_chroma.png" alt="" width="72" height="72" loading="lazy"><span>Chroma</span></li>
-      </ul>
-    </div>
+        <ul class="medals" aria-label="Medal ranks">
+          <li><img src="assets/img/medal_bronze.png" alt="" width="56" height="56" loading="lazy"><span>Bronze</span></li>
+          <li><img src="assets/img/medal_silver.png" alt="" width="56" height="56" loading="lazy"><span>Silver</span></li>
+          <li><img src="assets/img/medal_gold.png" alt="" width="56" height="56" loading="lazy"><span>Gold</span></li>
+          <li><img src="assets/img/medal_diamond.png" alt="" width="56" height="56" loading="lazy"><span>Diamond</span></li>
+          <li><img src="assets/img/medal_chroma.png" alt="" width="56" height="56" loading="lazy"><span>Chroma</span></li>
+        </ul>
+      </div>
+    </article>
   </div>
 </section>
 
-<!-- LEVELS -->
-<section class="section levels band band--sand on-light" id="levels">
+<!-- LEVELS: stage select -->
+<section class="section levels" id="levels" data-edge="#2a0f07">
   <div class="wrap">
     <div class="section__head reveal">
-      <p class="eyebrow eyebrow--hot">Levels</p>
-      <h2>One gunslinger. Many eras.</h2>
+      <p class="eyebrow">Stage select</p>
+      <h2>One gunslinger. <em>Many eras.</em></h2>
     </div>
-
-    <article class="level reveal">
-      <div class="level__media"><img src="assets/media/level-01.jpg" alt="Outlaws pour out of a saloon in the rain" loading="lazy"><span class="tag">GIF soon</span></div>
-      <div class="level__copy">
-        <p class="level__num">Stage 01</p>
-        <h3>The Wild West</h3>
-        <p>Where it all begins. A dusty frontier town, a saloon full of outlaws, a runaway train and a town torn apart by the artifact. Clear the streets, ride the rails, and face a showdown with something that has no business being in the 1800s.</p>
-        <ul class="chips"><li>Saloon shootout</li><li>Train chase</li><li>Boss fight</li></ul>
-      </div>
-    </article>
-
-    <article class="level level--flip reveal">
-      <div class="level__media"><img src="assets/media/level-02.jpg" alt="The marble lobby of a modern bank" loading="lazy"><span class="tag">Placeholder</span></div>
-      <div class="level__copy">
-        <p class="level__num">Stage 02</p>
-        <h3>The Bank Heist</h3>
-        <p>Jump forward to the present day, straight into the middle of a bank robbery. Fight from the lobby to the vault, and get ready for a paradox: a crew of Vikings who are a very long way from home.</p>
-        <ul class="chips"><li>Modern day</li><li>Vikings</li><li>Boss fight</li></ul>
-      </div>
-    </article>
-
-    <article class="level level--soon reveal">
-      <div class="level__media"><img src="assets/media/level-03.jpg" alt="A neon casino floor at night" loading="lazy"><span class="tag tag--hot">Coming soon</span></div>
-      <div class="level__copy">
-        <p class="level__num">Stage 03</p>
-        <h3>Coming soon</h3>
-        <p>Neon lights, a long night, and a chase that won't stop. The next timeline is on its way.</p>
-        <ul class="chips"><li>Stay tuned</li></ul>
-      </div>
-    </article>
+    <div class="stages">
+      <article class="stage reveal">
+        <img src="assets/media/level-01.jpg" alt="Outlaws pour out of a saloon in the rain" loading="lazy">
+        <span class="tag">GIF soon</span>
+        <div class="stage__copy">
+          <p class="stage__num">Stage 01 · 1880s</p>
+          <h3>The Wild West</h3>
+          <p>A frontier town, a saloon full of outlaws, a runaway train and a town torn apart by the artifact. Then a showdown with something that has no business being in the 1800s.</p>
+          <ul class="chips"><li>Saloon shootout</li><li>Train chase</li><li>Boss fight</li></ul>
+        </div>
+      </article>
+      <article class="stage reveal">
+        <img src="assets/media/level-02.jpg" alt="The marble lobby of a modern bank" loading="lazy">
+        <span class="tag">Placeholder</span>
+        <div class="stage__copy">
+          <p class="stage__num">Stage 02 · Present day</p>
+          <h3>The Bank Heist</h3>
+          <p>Fracture forward into the middle of a bank robbery. Fight from the lobby to the vault, and meet a paradox: a crew of Vikings a very long way from home.</p>
+          <ul class="chips"><li>Modern day</li><li>Vikings</li><li>Boss fight</li></ul>
+        </div>
+      </article>
+      <article class="stage stage--soon reveal">
+        <img src="assets/media/level-03.jpg" alt="A neon casino floor at night" loading="lazy">
+        <span class="tag tag--hot">Coming soon</span>
+        <div class="stage__copy">
+          <p class="stage__num">Stage 03 · ???</p>
+          <h3>Coming soon</h3>
+          <p>Neon lights, a long night, and a chase that won't stop. The next fracture is opening.</p>
+          <ul class="chips"><li>Stay tuned</li></ul>
+        </div>
+      </article>
+    </div>
   </div>
 </section>
 
 <!-- STORY -->
-<section class="story" id="story">
+<section class="story" id="story" data-edge="#060b17">
   <div class="story__bg" style="background-image:url('assets/img/story-bg.jpg')"></div>
   <div class="story__shade"></div>
   <div class="wrap story__inner reveal">
-    <p class="eyebrow eyebrow--hot">The story</p>
-    <h2>Time is broken. Your brother is missing.</h2>
+    <p class="eyebrow">The story</p>
+    <h2>Time is broken. <em>Your brother is missing.</em></h2>
     <p>When a mysterious artifact crashes from the sky and fractures time, history starts to fall apart.</p>
     <p>You are the Ranger: once a frontier lawman, now a time-bending gunslinger. The town's Sheriff, corrupted by the artifact's power, has kidnapped your brother, your deputy and closest ally.</p>
     <p>To save him you will fight across fractured eras, through paradoxes, warped creatures and agents sworn to protect the timeline. Every showdown brings you closer to your brother, and to the moment that could set time right, or end it forever.</p>
@@ -195,11 +237,11 @@
 </section>
 
 <!-- GALLERY -->
-<section class="section gallery band band--sun on-color" id="gallery">
+<section class="section gallery" id="gallery" data-edge="#08101f">
   <div class="wrap">
     <div class="section__head reveal">
-      <p class="eyebrow eyebrow--hot">Screenshots</p>
-      <h2>Straight from the headset</h2>
+      <p class="eyebrow">Screenshots</p>
+      <h2>Straight from <em>the headset</em></h2>
     </div>
     <div class="shots">
       <a href="assets/img/shots/sc-36.jpg" class="shot shot--wide"><img src="assets/img/shots/sc-36.jpg" alt="Outlaws fill the saloon windows in the rain" loading="lazy"></a>
@@ -217,11 +259,11 @@
 </section>
 
 <!-- PLAY / PLATFORMS -->
-<section class="section play band band--sand2 on-light" id="play">
+<section class="section play" id="play" data-edge="#2a0f07">
   <div class="wrap">
     <div class="section__head reveal">
-      <p class="eyebrow eyebrow--hot">Where to play</p>
-      <h2>Grab your guns</h2>
+      <p class="eyebrow">Where to play</p>
+      <h2>Grab <em>your guns</em></h2>
       <p class="lead">Time Ranger launches on Meta Quest first, then Steam and as many PC VR stores as we can reach. Wishlist now so you hear the moment it's out.</p>
     </div>
     <div class="platforms">
@@ -230,7 +272,7 @@
         <p class="platform__status">Coming soon · Demo out now</p>
         <div class="platform__ctas">
           <a class="btn btn--hot" href="https://www.meta.com/experiences/time-ranger/24452721484379707/" target="_blank" rel="noopener">Wishlist on Meta Quest</a>
-          <a class="btn btn--ghost" href="https://www.meta.com/experiences/time-ranger-demo/33572087599057043/" target="_blank" rel="noopener">Play the free demo</a>
+          <a class="btn btn--glass" href="https://www.meta.com/experiences/time-ranger-demo/33572087599057043/" target="_blank" rel="noopener">Play the free demo</a>
         </div>
       </div>
       <div class="platform reveal">
@@ -241,23 +283,23 @@
       <div class="platform reveal">
         <p class="platform__name">itch.io</p>
         <p class="platform__status">PC VR demo</p>
-        <a class="btn btn--ghost" href="https://invisiblegamedesign.itch.io/timeranger" target="_blank" rel="noopener">Get the demo</a>
+        <a class="btn btn--glass" href="https://invisiblegamedesign.itch.io/timeranger" target="_blank" rel="noopener">Get the demo</a>
       </div>
       <div class="platform reveal">
         <p class="platform__name">SideQuest</p>
         <p class="platform__status">Quest demo</p>
-        <a class="btn btn--ghost" href="https://sidequestvr.com/app/44600/time-ranger" target="_blank" rel="noopener">Get the demo</a>
+        <a class="btn btn--glass" href="https://sidequestvr.com/app/44600/time-ranger" target="_blank" rel="noopener">Get the demo</a>
       </div>
     </div>
   </div>
 </section>
 
 <!-- TEAM -->
-<section class="section team band band--sky on-color" id="team">
+<section class="section team" id="team" data-edge="#08101f">
   <div class="wrap team__grid">
     <div class="reveal">
-      <p class="eyebrow eyebrow--hot">Who's building it</p>
-      <h2>Two devs. No publisher. All heart.</h2>
+      <p class="eyebrow">Who's building it</p>
+      <h2>Two devs. No publisher. <em>All heart.</em></h2>
       <p>Time Ranger is made by two industry veterans with over 30 years of combined experience on games like Shadowgun Legends, 8 Ball Pool and Angry Birds Action!. After getting caught up in the industry's layoffs, they teamed up to make the game they always wanted to play, and they are funding it themselves.</p>
       <p>If you'd like to help: wishlist, tell a friend, and play the demo. Every bit of feedback makes the game better.</p>
     </div>
@@ -269,12 +311,12 @@
 </section>
 
 <!-- PRESS -->
-<section class="section press band band--sand on-light" id="press">
+<section class="section press" id="press" data-edge="#0b1428">
   <div class="wrap press__inner reveal">
     <div>
-      <p class="eyebrow eyebrow--hot">Press &amp; creators</p>
-      <h2>Press kit</h2>
-      <p>Logos and key art for coverage of Time Ranger. For keys, interviews or anything else, email <a href="mailto:social@invisiblegamedesign.com">social@invisiblegamedesign.com</a>.</p>
+      <p class="eyebrow">Press &amp; creators</p>
+      <h2>Press <em>kit</em></h2>
+      <p>Logos and key art for coverage of Time Ranger. Content creator? We'd love to hear from you. For keys, interviews or anything else, email <a href="mailto:social@invisiblegamedesign.com">social@invisiblegamedesign.com</a>.</p>
     </div>
     <ul class="downloads">
       <li><a href="assets/img/logo.png" download>Logo (PNG)</a></li>
@@ -286,7 +328,12 @@
 </section>
 
 <!-- FINAL CTA -->
-<section class="final band band--night">
+<section class="final" data-edge="#060b17">
+  <div class="shards" aria-hidden="true">
+    <svg class="shard" style="--x:10%;--y:20%;--s:60px;--r:-30deg;--d:.2s" viewBox="0 0 100 100"><polygon points="0,30 100,0 40,100"/></svg>
+    <svg class="shard" style="--x:85%;--y:30%;--s:76px;--r:20deg;--d:.8s" viewBox="0 0 100 100"><polygon points="10,0 100,60 0,100"/></svg>
+    <svg class="shard" style="--x:78%;--y:78%;--s:40px;--r:-12deg;--d:1.4s" viewBox="0 0 100 100"><polygon points="0,0 100,40 30,100"/></svg>
+  </div>
   <div class="wrap final__inner reveal">
     <p class="final__over">Game over?</p>
     <h2>Continue?</h2>
@@ -299,7 +346,7 @@
 
 <footer class="footer">
   <div class="wrap footer__inner">
-    <img src="assets/img/logo.png" alt="Time Ranger" width="96" height="80" loading="lazy">
+    <img src="assets/img/logo-fracture-sm.webp" alt="Time Ranger" width="240" height="160" loading="lazy">
     <p>© 2026 <a href="https://www.invisiblegamedesign.com" target="_blank" rel="noopener">Invisible Game Design s.r.o.</a> · An independent game studio.</p>
     <nav class="footer__links" aria-label="Footer">
       <a href="privacy.html">Privacy policy</a>

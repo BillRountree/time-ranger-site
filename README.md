@@ -27,7 +27,9 @@ Feature and level media live in `assets/media/`. Each one is a still for now, ma
 | Stage 02 Bank Heist (placeholder crop) | `assets/media/level-02.jpg` |
 | Stage 03 Coming soon | `assets/media/level-03.jpg` |
 
-Screenshots are in `assets/img/shots/`, key art and logo in `assets/img/`.
+Screenshots are in `assets/img/shots/`, key art and logos in `assets/img/`. The page uses the draft
+"fractured time" logo (`logo-fracture.webp`, black keyed out to transparency); the press kit still offers the
+current `logo.png`.
 
 ## Links to keep up to date
 
