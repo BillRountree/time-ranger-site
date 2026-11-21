@@ -36,4 +36,6 @@ current `logo.png`.
 - Meta Quest wishlist and demo, itch.io, SideQuest: in the hero, the "Where to play" section and the final CTA.
 - Steam: marked "Coming later" in "Where to play"; swap the disabled button for a link when the page is live.
 - Trailer: YouTube id `glyHTb7BkSE` on the `.yt` button (the player loads only when clicked).
-- `privacy.html` is the Time Ranger privacy policy (same text as the Squarespace version).
+- `privacy.html` and `terms.html` hold the Time Ranger privacy policy and terms (same text as the Squarespace code
+  blocks of 17 November 2026), styled by `legal.css`. The footer links to both and to invisiblegamedesign.com.
+- Deploy: pushing to `main` publishes to GitHub Pages.
